@@ -80,7 +80,15 @@ class LinkedList:
                 node1 = Node(new_value)
                 node1.next = n.next
                 n.next = node1
-    
+    # Delete a node from the beginning of a linked list
+    def delete_at_the_beginning(self):
+        if self.head is None:
+            print("Linked list is empty!")
+        else:
+            self.head = self.head.next
+
+    # Delete the node at the end of a linked list
+
 if __name__ == '__main__':
      
     l1 = LinkedList()
@@ -97,4 +105,5 @@ if __name__ == '__main__':
     l1.insert_after(899,500)
     l1.insert_at_the_end(90)
     l1.insert_at_the_beginning(0)
+    l1.delete_at_the_beginning()
     l1.print_linked_list()
