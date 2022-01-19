@@ -88,7 +88,32 @@ class LinkedList:
             self.head = self.head.next
 
     # Delete the node at the end of a linked list
-
+    def delete_at_the_end(self):
+        if self.head is None:
+            print("Linked list is empty")
+        elif self.head.next is None:
+            self.head = None
+        else:
+            n = self.head
+            while n.next.next is not None:
+                n = n.next
+            n.next = None
+    def delete_by_value(self, value):
+        if self.head is None:
+            print("Linked list is empty")
+            return
+        if self.head.data == value:
+            self.head = self.head.next
+            return
+        n = self.head
+        while n.next is not None:
+            if n.next.data == value:
+                break
+            n = n.next
+        if n.next is None:
+            print("Value not found")
+        else:
+            n.next = n.next.next
 if __name__ == '__main__':
      
     l1 = LinkedList()
@@ -106,4 +131,7 @@ if __name__ == '__main__':
     l1.insert_at_the_end(90)
     l1.insert_at_the_beginning(0)
     l1.delete_at_the_beginning()
+    l1.delete_at_the_end()
+    l1.delete_by_value(5)
+    l1.delete_by_value(8)
     l1.print_linked_list()
