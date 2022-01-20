@@ -1,7 +1,6 @@
 '''
 Quick sort 
 Time complexity: Best case-O(nlogn),Average case-O,worst case-O(n^2)
-mycodeschool
 
 Pseudocode
 Quicksort(arr,start,end)
@@ -35,7 +34,6 @@ def partition(arr,start,end):
             arr[i],arr[partitionIndex] = arr[partitionIndex],arr[i]
     arr[end],arr[partitionIndex+1] = arr[partitionIndex+1],arr[end]
     return partitionIndex+1
-
 
 arr = [2,0,5,3,8,1,9,6]
 start = 0
