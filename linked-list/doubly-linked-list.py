@@ -90,6 +90,62 @@ class DoublyLinkedList:
                 if n.prev is not None:
                     n.prev.next = new_node
                 n.prev = new_node
+    
+    def delete_at_the_beginning(self):
+        if self.head is None:
+            print("Linked list is empty")
+            return
+        if self.head.next is None:
+            self.head = None
+            print("Linked list is empty after deleting the node")
+        else:
+            self.head = self.head.next
+            self.head.prev = None
+
+
+    def delete_at_the_end(self):
+        if self.head is None:
+            print("Linked list is empty")
+            return
+        if self.head.next is None:
+            self.head = None
+            print("Linked list is empty after deleting the node")
+        else:
+            n = self.head
+            while n.next is not None:
+                n = n.next
+            n.prev.next = None
+
+    def delete_by_value(self, val):
+        if self.head is None:
+            print("Linked list is empty")
+            return
+        if self.head.next is None:
+            if val == self.head.data:
+                self.head = None
+            else:
+                print("The value is not in the linked list")
+            return
+        if self.head.data == val:
+            self.head = self.head.next
+            self.head.prev = None
+            return
+        n = self.head
+        while  n.next is not None:
+            if val == n.data:
+                break
+            n = n.next
+        if n.next is not None:
+            n.next.prev = n.prev
+            n.prev. next = n.next
+        else:
+            if val == n.data:
+                n.prev.next = None
+            else:
+                print("The value is not in the linked list")
+
+
+
 
 if __name__ == '__main__':
     ll1 = DoublyLinkedList()
@@ -97,10 +153,11 @@ if __name__ == '__main__':
     # ll1.insert_at_the_beginning(2)
     # ll1.insert_at_the_beginning(3)
     ll1.insert_to_empty_llist(1)
-    ll1.insert_at_the_beginning(2)
-    ll1.insert_at_the_beginning(3)
+    # ll1.insert_at_the_beginning(2)
+    # ll1.insert_at_the_beginning(3)
     ll1.insert_at_the_end(0)
     ll1.insert_after_given_node(3,33)
     ll1.insert_before_given_node(0,100)
+    ll1.delete_by_value(0)
     ll1.print_linked_list()
     ll1.print_reverse_linked_list()
