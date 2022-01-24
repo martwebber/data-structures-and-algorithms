@@ -15,11 +15,13 @@ class QueueDS:
 
     def display(self):
         print(self.queue)
+    def peek(self):
+        print(self.queue[0])
 
 if __name__ == '__main__':
     q1 = QueueDS()
     while True:
-        print("Select 1 to add an element, 2 to remove an element, 3 to display and 4 to quit")
+        print("Select 1 to add an element, 2 to remove an element, 3 to display 4 peek and 5 to quit")
         choice = int(input("What is your choice?"))
         if choice == 1:
             q1.enqueue()
@@ -28,6 +30,8 @@ if __name__ == '__main__':
         elif choice == 3:
             q1.display()
         elif choice == 4:
+            q1.peek()
+        elif choice == 5:
             break
         else:
             print("You entered a wrong choice, try again")
