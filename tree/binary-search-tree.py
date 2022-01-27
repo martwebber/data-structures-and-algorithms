@@ -72,9 +72,6 @@ class BinarySearchTree:
             self.right_child = self.right_child.deletion(node.key)
         return self
 
-
-
-
     def preorder_traversal(self):
         print(self.key, end=' ')
         if self.left_child:
@@ -93,9 +90,15 @@ class BinarySearchTree:
         if self.right_child:
             self.right_child.postorder_traversal()
         print(self.key, end=' ')
+def count(node):
+    if node is None:
+        return 0
+    return 1+count(node.left_child)+count(node.right_child)
 if __name__ == '__main__':
+
+
     root = BinarySearchTree(50)
-    l1 = [90,76,90,4,74,23,0,12]
+    l1 = [50,99,8]
     for i in l1:
         root.insertion(i)
     root.search(40)
@@ -105,7 +108,10 @@ if __name__ == '__main__':
     root.inorder_traversal()
     print("\npost-order")
     root.postorder_traversal()
-    root.deletion(50)
+    if count(root)>1:
+        root.deletion(50)
+    else:
+        print("You cannot perform the deletion operation")
     print("\npost-order after deleting node")
     root.postorder_traversal()
 
