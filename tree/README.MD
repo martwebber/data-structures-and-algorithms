@@ -22,9 +22,9 @@ A tree with N nodes has exactly N-1 edges
 
 ### Binary Search Tree(BST) operations
 
-bool isFull()
+- Insertion 
 
-bool isEmpty()
+- Deletion
 ## Applications of trees
 - Storing naturally hierarchical data ex file system
 
