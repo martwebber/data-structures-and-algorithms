@@ -1,9 +1,4 @@
 import random
-# class Node:
-#     def __init__(self, key):
-#         self.key = key
-#         self.left_child = None
-#         self.right_child = None
 
 class BinarySearchTree:
     def __init__(self, key):
@@ -95,10 +90,9 @@ def count(node):
         return 0
     return 1+count(node.left_child)+count(node.right_child)
 if __name__ == '__main__':
-
-
     root = BinarySearchTree(50)
-    l1 = [50,99,8]
+    l1 = [random.randrange(0,100)*random.randrange(0,100) for x in range(5)]
+    print(l1)
     for i in l1:
         root.insertion(i)
     root.search(40)
@@ -114,4 +108,3 @@ if __name__ == '__main__':
         print("You cannot perform the deletion operation")
     print("\npost-order after deleting node")
     root.postorder_traversal()
-
